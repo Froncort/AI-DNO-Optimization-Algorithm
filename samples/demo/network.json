@@ -1,0 +1,377 @@
+{
+  "schema_version": 1,
+  "project_id": "sample-network",
+  "facilities": [
+    {
+      "id": "hf-n01",
+      "name": "Health Facility North 1",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "North District",
+      "latitude": "45.1020",
+      "longitude": "-120.0130"
+    },
+    {
+      "id": "hf-n02",
+      "name": "Health Facility North 2",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "North District",
+      "latitude": "45.1040",
+      "longitude": "-120.0160"
+    },
+    {
+      "id": "hf-n03",
+      "name": "Health Facility North 3",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "North District",
+      "latitude": "45.1060",
+      "longitude": "-120.0190"
+    },
+    {
+      "id": "hf-n04",
+      "name": "Health Facility North 4",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "North District",
+      "latitude": "45.1080",
+      "longitude": "-120.0220"
+    },
+    {
+      "id": "hf-n05",
+      "name": "Health Facility North 5",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "North District",
+      "latitude": "45.1100",
+      "longitude": "-120.0250"
+    },
+    {
+      "id": "hf-n06",
+      "name": "Health Facility North 6",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "North District",
+      "latitude": "45.1120",
+      "longitude": "-120.0280"
+    },
+    {
+      "id": "hf-n07",
+      "name": "Health Facility North 7",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "North District",
+      "latitude": "45.1140",
+      "longitude": "-120.0310"
+    },
+    {
+      "id": "hf-n08",
+      "name": "Health Facility North 8",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "North District",
+      "latitude": "45.1160",
+      "longitude": "-120.0340"
+    },
+    {
+      "id": "hf-n09",
+      "name": "Health Facility North 9",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "North District",
+      "latitude": "45.1180",
+      "longitude": "-120.0370"
+    },
+    {
+      "id": "hf-s01",
+      "name": "Health Facility South 1",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "South District",
+      "latitude": "44.8980",
+      "longitude": "-120.0130"
+    },
+    {
+      "id": "hf-s02",
+      "name": "Health Facility South 2",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "South District",
+      "latitude": "44.8960",
+      "longitude": "-120.0160"
+    },
+    {
+      "id": "hf-s03",
+      "name": "Health Facility South 3",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "South District",
+      "latitude": "44.8940",
+      "longitude": "-120.0190"
+    },
+    {
+      "id": "hf-s04",
+      "name": "Health Facility South 4",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "South District",
+      "latitude": "44.8920",
+      "longitude": "-120.0220"
+    },
+    {
+      "id": "hf-s05",
+      "name": "Health Facility South 5",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "South District",
+      "latitude": "44.8900",
+      "longitude": "-120.0250"
+    },
+    {
+      "id": "hf-s06",
+      "name": "Health Facility South 6",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "South District",
+      "latitude": "44.8880",
+      "longitude": "-120.0280"
+    },
+    {
+      "id": "hf-s07",
+      "name": "Health Facility South 7",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "South District",
+      "latitude": "44.8860",
+      "longitude": "-120.0310"
+    },
+    {
+      "id": "hf-s08",
+      "name": "Health Facility South 8",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "South District",
+      "latitude": "44.8840",
+      "longitude": "-120.0340"
+    },
+    {
+      "id": "hf-s09",
+      "name": "Health Facility South 9",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "South District",
+      "latitude": "44.8820",
+      "longitude": "-120.0370"
+    }
+  ],
+  "labs": [
+    {
+      "id": "lab-north-hub",
+      "name": "North District Laboratory",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "North District",
+      "latitude": "45.1200",
+      "longitude": "-120.0000"
+    },
+    {
+      "id": "lab-south-hub",
+      "name": "South District Laboratory",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "South District",
+      "latitude": "44.8800",
+      "longitude": "-120.0000"
+    },
+    {
+      "id": "lab-east",
+      "name": "East District Laboratory",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "North District",
+      "latitude": "45.0500",
+      "longitude": "-119.8200"
+    },
+    {
+      "id": "lab-west",
+      "name": "West District Laboratory",
+      "admin_area_1": "Sample Region",
+      "admin_area_2": "South District",
+      "latitude": "44.9500",
+      "longitude": "-120.1800"
+    }
+  ],
+  "devices": [
+    {
+      "facility_id": "lab-north-hub",
+      "device_type": "GX 4",
+      "device_type_id": "dt-gx4",
+      "device_id": "dev-n1",
+      "max_shifts": 2,
+      "max_tests_per_shift": 12
+    },
+    {
+      "facility_id": "lab-north-hub",
+      "device_type": "GX 4",
+      "device_type_id": "dt-gx4",
+      "device_id": "dev-n2",
+      "max_shifts": 2,
+      "max_tests_per_shift": 12
+    },
+    {
+      "facility_id": "lab-south-hub",
+      "device_type": "GX 4",
+      "device_type_id": "dt-gx4",
+      "device_id": "dev-s1",
+      "max_shifts": 2,
+      "max_tests_per_shift": 12
+    },
+    {
+      "facility_id": "lab-east",
+      "device_type": "GX 4",
+      "device_type_id": "dt-gx4",
+      "device_id": "dev-e1",
+      "max_shifts": 2,
+      "max_tests_per_shift": 12
+    },
+    {
+      "facility_id": "lab-west",
+      "device_type": "GX 4",
+      "device_type_id": "dt-gx4",
+      "device_id": "dev-w1",
+      "max_shifts": 2,
+      "max_tests_per_shift": 12
+    }
+  ],
+  "referrals": [
+    {
+      "facility_id": "hf-n01",
+      "lab_id": "lab-south-hub",
+      "referral_count": 1150,
+      "distance_km": 36
+    },
+    {
+      "facility_id": "hf-n02",
+      "lab_id": "lab-south-hub",
+      "referral_count": 1200,
+      "distance_km": 37
+    },
+    {
+      "facility_id": "hf-n03",
+      "lab_id": "lab-south-hub",
+      "referral_count": 1250,
+      "distance_km": 38
+    },
+    {
+      "facility_id": "hf-n04",
+      "lab_id": "lab-south-hub",
+      "referral_count": 1300,
+      "distance_km": 39
+    },
+    {
+      "facility_id": "hf-n05",
+      "lab_id": "lab-south-hub",
+      "referral_count": 1350,
+      "distance_km": 40
+    },
+    {
+      "facility_id": "hf-n06",
+      "lab_id": "lab-south-hub",
+      "referral_count": 1400,
+      "distance_km": 41
+    },
+    {
+      "facility_id": "hf-n07",
+      "lab_id": "lab-south-hub",
+      "referral_count": 1450,
+      "distance_km": 42
+    },
+    {
+      "facility_id": "hf-n08",
+      "lab_id": "lab-south-hub",
+      "referral_count": 1500,
+      "distance_km": 43
+    },
+    {
+      "facility_id": "hf-n09",
+      "lab_id": "lab-south-hub",
+      "referral_count": 1550,
+      "distance_km": 44
+    },
+    {
+      "facility_id": "hf-s01",
+      "lab_id": "lab-north-hub",
+      "referral_count": 1040,
+      "distance_km": 33
+    },
+    {
+      "facility_id": "hf-s02",
+      "lab_id": "lab-north-hub",
+      "referral_count": 1080,
+      "distance_km": 34
+    },
+    {
+      "facility_id": "hf-s03",
+      "lab_id": "lab-north-hub",
+      "referral_count": 1120,
+      "distance_km": 35
+    },
+    {
+      "facility_id": "hf-s04",
+      "lab_id": "lab-north-hub",
+      "referral_count": 1160,
+      "distance_km": 36
+    },
+    {
+      "facility_id": "hf-s05",
+      "lab_id": "lab-north-hub",
+      "referral_count": 1200,
+      "distance_km": 37
+    },
+    {
+      "facility_id": "hf-s06",
+      "lab_id": "lab-north-hub",
+      "referral_count": 1240,
+      "distance_km": 38
+    },
+    {
+      "facility_id": "hf-s07",
+      "lab_id": "lab-north-hub",
+      "referral_count": 1280,
+      "distance_km": 39
+    },
+    {
+      "facility_id": "hf-s08",
+      "lab_id": "lab-north-hub",
+      "referral_count": 1320,
+      "distance_km": 40
+    },
+    {
+      "facility_id": "hf-s09",
+      "lab_id": "lab-north-hub",
+      "referral_count": 1360,
+      "distance_km": 41
+    }
+  ],
+  "test_volumes": {
+    "hf-n01": 1150,
+    "hf-n02": 1200,
+    "hf-n03": 1250,
+    "hf-n04": 1300,
+    "hf-n05": 1350,
+    "hf-n06": 1400,
+    "hf-n07": 1450,
+    "hf-n08": 1500,
+    "hf-n09": 1550,
+    "hf-s01": 1040,
+    "hf-s02": 1080,
+    "hf-s03": 1120,
+    "hf-s04": 1160,
+    "hf-s05": 1200,
+    "hf-s06": 1240,
+    "hf-s07": 1280,
+    "hf-s08": 1320,
+    "hf-s09": 1360
+  },
+  "test_type_names": {
+    "tt-mtb": "MTB molecular"
+  },
+  "manual_capability_overrides": [
+    [
+      "lab-north-hub",
+      "tt-mtb"
+    ],
+    [
+      "lab-south-hub",
+      "tt-mtb"
+    ],
+    [
+      "lab-east",
+      "tt-mtb"
+    ],
+    [
+      "lab-west",
+      "tt-mtb"
+    ]
+  ]
+}

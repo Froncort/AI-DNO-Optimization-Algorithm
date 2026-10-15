@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<!--
+Copyright 2026 Froncort
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>AI-DNO — Diagnostic Network Optimisation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="ui/assets/triangle-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="ui/app.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Workflow navigation">
+      <div class="sidebar-brand">
+        <h1 class="brand-title">AI-DNO</h1>
+        <p class="brand-subtitle">Diagnostic Network Optimization (DNO)</p>
+      </div>
+      <nav class="step-nav" id="step-nav" aria-label="DNO workflow steps">
+        <button type="button" class="step-tab active" data-step="1">
+          <span class="step-num">1</span>
+          <span class="step-label">Prepare tools</span>
+        </button>
+        <button type="button" class="step-tab" data-step="2">
+          <span class="step-num">2</span>
+          <span class="step-label">Load network data</span>
+        </button>
+        <button type="button" class="step-tab" data-step="3">
+          <span class="step-num">3</span>
+          <span class="step-label">Prepare inputs</span>
+        </button>
+        <button type="button" class="step-tab" data-step="4">
+          <span class="step-num">4</span>
+          <span class="step-label">Conduct analysis</span>
+        </button>
+        <button type="button" class="step-tab" data-step="5">
+          <span class="step-num">5</span>
+          <span class="step-label">Interpret outputs</span>
+        </button>
+      </nav>
+      <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Collapse sidebar" aria-expanded="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="sidebar-toggle-label">Collapse</span>
+      </button>
+    </aside>
+
+    <div class="app-body">
+      <header class="app-header">
+        <p class="tagline">Measure today&rsquo;s diagnostic network. Optimise sample referral linkages across access, utilisation, and cost.</p>
+      </header>
+
+      <main class="main-content">
+    <!-- Step 1: Setup -->
+    <section class="step-panel active" id="step-1" data-step="1">
+      <header class="page-header">
+        <h2>Prepare DNO tools</h2>
+        <p class="lead">Install the DNO analysis environment on your computer &mdash; no command line needed.</p>
+      </header>
+
+      <div class="setup-success hidden" id="setup-success">
+        <div class="setup-success-icon" aria-hidden="true">✓</div>
+        <div class="setup-success-text">
+          <h3>DNO tools ready</h3>
+          <p>Your environment is ready. Continue to load or create your diagnostic network scenario.</p>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg" id="btn-continue-setup">Load network data &rarr;</button>
+      </div>
+
+      <div class="setup-panel" id="setup-panel">
+        <div class="card setup-checklist-card">
+          <h3 class="setup-checklist-heading">Environment checklist</h3>
+          <ul class="setup-checklist" id="env-grid" aria-label="DNO environment requirements"></ul>
+        </div>
+
+        <div class="setup-cta">
+          <button type="button" class="btn btn-primary btn-lg" id="btn-setup">Install DNO tools</button>
+          <p class="setup-note" id="setup-hint">First run needs internet to download the optimisation solver. After that, analyses work offline.</p>
+        </div>
+
+        <details class="setup-troubleshoot">
+          <summary>Having issues?</summary>
+          <div class="setup-troubleshoot-actions">
+            <button type="button" class="btn btn-secondary" id="btn-repair">Repair / reinstall</button>
+            <button type="button" class="btn btn-ghost" id="btn-remove-venv">Remove environment</button>
+          </div>
+        </details>
+      </div>
+
+      <section class="dno-capabilities" id="dno-capabilities" aria-labelledby="capabilities-title"></section>
+    </section>
+
+    <!-- Step 2: Load network -->
+    <section class="step-panel" id="step-2" data-step="2">
+      <header class="page-header">
+        <h2 id="step-2-title">Load network data</h2>
+        <p class="lead" id="step-2-lead">Point DNO at your network.json, or load the bundled sample network.</p>
+      </header>
+
+      <div class="card card-form load-network-form">
+        <div class="form-fields">
+          <div class="form-field">
+            <label class="field-label" for="network-path-input" id="label-network-path">Path to your <code>network.json</code></label>
+            <input type="text" id="network-path-input" class="text-input" placeholder="e.g. my-scenario/network.json" autocomplete="off">
+          </div>
+          <div class="form-field">
+            <label class="field-label" for="catalogue-path-input" id="label-catalogue-path">Path to device catalogue <span class="field-optional">(optional)</span></label>
+            <input type="text" id="catalogue-path-input" class="text-input" placeholder="e.g. my-scenario/network.catalogue.json" autocomplete="off">
+          </div>
+          <p class="field-hint" id="load-path-hint">Relative to the dno-core folder.</p>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-primary" id="btn-load-path">Load scenario</button>
+        </div>
+        <div class="load-network-divider load-network-divider--inset" aria-hidden="true"><span>or</span></div>
+        <div class="load-network-alt">
+          <button type="button" class="btn btn-outline" id="btn-use-demo">Use sample network</button>
+          <p class="load-demo-note" id="load-demo-note">Bundled sample network.</p>
+        </div>
+      </div>
+
+      <div class="selected-network step-continue-bar hidden" id="selected-network">
+        <div class="step-continue-inner">
+          <div class="step-continue-copy">
+            <h3>Selected scenario</h3>
+            <div id="selected-network-info" class="selected-network-details"></div>
+            <p class="step-continue-msg" id="step-2-continue-msg">Scenario loaded — continue to review and edit network inputs.</p>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg step-continue-btn" id="btn-go-edit">Continue to Prepare inputs &rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 3: Edit network -->
+    <section class="step-panel" id="step-3" data-step="3">
+      <header class="page-header">
+        <h2>Prepare network inputs</h2>
+        <p class="lead" id="step-3-lead">Review health facilities, testing sites, diagnostic devices, and sample referral linkages (SRS). Changes save to your network files.</p>
+        <p class="csv-only-hint" id="prepare-inputs-csv-hint">CSV uploads only — Excel (.xlsx) is not supported. If your data is in Excel, save each sheet (health facilities, diagnostic services, sample referrals) as a separate CSV file, then use Upload CSV on the matching tab.</p>
+      </header>
+
+      <div class="editor-workspace">
+      <div class="editor-toolbar">
+        <div class="editor-tabs" id="editor-tabs">
+          <button type="button" class="editor-tab active" data-editor="project">Scenario</button>
+          <button type="button" class="editor-tab" data-editor="labs">Testing sites</button>
+          <button type="button" class="editor-tab" data-editor="facilities">Health facilities</button>
+          <button type="button" class="editor-tab" data-editor="devices">Diagnostic devices</button>
+          <button type="button" class="editor-tab" data-editor="referrals">Sample referral linkages</button>
+          <button type="button" class="editor-tab" data-editor="catalogue">Device catalogue</button>
+          <button type="button" class="editor-tab" data-editor="advanced">Advanced inputs</button>
+        </div>
+        <div class="editor-actions">
+          <input type="search" id="editor-search" class="text-input search-input" placeholder="Search rows&hellip;">
+          <button type="button" class="btn btn-primary" id="btn-save-network">Save network inputs</button>
+        </div>
+      </div>
+
+      <div class="validation-banner" id="validation-banner"></div>
+      <div class="editor-content" id="editor-content"></div>
+      </div>
+
+      <div class="step-continue-bar hidden" id="step-3-continue">
+        <div class="step-continue-inner">
+          <div class="step-continue-copy">
+            <p class="step-continue-title">Ready for analysis</p>
+            <p class="step-continue-msg" id="step-3-continue-msg">All checks passed — network inputs are ready for DNO analysis.</p>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg step-continue-btn" id="btn-go-run">Continue to Conduct analysis &rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 4: Run -->
+    <section class="step-panel" id="step-4" data-step="4">
+      <header class="page-header">
+        <h2>Conduct DNO analysis</h2>
+        <p class="lead">Open Referral redesign &mdash; advanced optimisation that recommends sample referral linkage changes to improve access, device utilisation, and network cost.</p>
+      </header>
+
+      <div class="card">
+        <h3 id="run-focus-title">Optimisation focus</h3>
+        <div class="focus-cards" id="focus-cards">
+          <label class="focus-card"><input type="radio" name="focus" value="access" checked><span class="focus-title">Access</span><span class="focus-desc">Improve population accessibility — minimise sample referral distance</span></label>
+          <label class="focus-card"><input type="radio" name="focus" value="util"><span class="focus-title">Utilisation</span><span class="focus-desc">Balance diagnostic device utilisation across testing sites</span></label>
+          <label class="focus-card"><input type="radio" name="focus" value="cost"><span class="focus-title">Cost</span><span class="focus-desc">Reduce sample transport and network cost</span></label>
+          <label class="focus-card"><input type="radio" name="focus" value="balanced"><span class="focus-title">Balanced</span><span class="focus-desc">Equal weight on access, utilisation, and cost</span></label>
+        </div>
+      </div>
+
+      <details class="card advanced-details">
+        <summary id="run-advanced-summary">Open Referral analysis settings</summary>
+        <div class="advanced-grid">
+          <div class="option-group">
+            <h4 class="option-group-title" id="run-scope-title">Geographic scope</h4>
+            <label class="checkbox-label" for="opt-partition">
+              <input type="checkbox" id="opt-partition">
+              <span id="run-partition-label">Optimise within administrative boundaries</span>
+            </label>
+            <p class="option-hint" id="run-partition-hint">Run sample referral redesign separately for each state/region or district. Use when planning decentralised DNO analyses across programme areas.</p>
+            <label class="field-label" for="opt-admin-level" id="admin-level-wrap">
+              <span id="run-admin-level-label">Boundary level</span>
+              <select id="opt-admin-level" class="select-input" disabled>
+                <option value="admin_area_1">State / region (Admin area 1)</option>
+                <option value="admin_area_2">District (Admin area 2)</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="option-group">
+            <h4 class="option-group-title" id="run-srs-title">Sample referral linkages (SRS)</h4>
+            <label class="checkbox-label" for="opt-synthetic">
+              <input type="checkbox" id="opt-synthetic">
+              <span id="run-synthetic-label">Estimate missing SRS for facilities with demand</span>
+            </label>
+            <p class="option-hint" id="run-synthetic-hint">When a health facility has annual testing demand but no sample referral linkage, the DNO tool can create estimated linkages before optimisation. Enable if your network data has coverage gaps.</p>
+          </div>
+
+          <div class="option-group">
+            <h4 class="option-group-title" id="run-log-title">Activity log</h4>
+            <label class="checkbox-label" for="opt-quiet">
+              <input type="checkbox" id="opt-quiet">
+              <span id="run-quiet-label">Minimise log output</span>
+            </label>
+            <p class="option-hint" id="run-quiet-hint">Hide detailed solver progress in the activity log during analysis.</p>
+            <label class="checkbox-label" for="opt-verbose">
+              <input type="checkbox" id="opt-verbose">
+              <span id="run-verbose-label">Verbose troubleshooting logs</span>
+            </label>
+            <p class="option-hint" id="run-verbose-hint">Show detailed solver diagnostics — use only when troubleshooting a failed analysis.</p>
+          </div>
+        </div>
+      </details>
+
+      <div class="card">
+        <label class="field-label" for="output-dir" id="run-output-label">DNO analysis results folder</label>
+        <input type="text" id="output-dir" class="text-input">
+        <p class="option-hint" id="run-output-hint">Decision brief, 3×3 scorecard, baseline metrics, and sample referral redesign recommendations are saved here after the run completes.</p>
+        <div class="command-preview">
+          <div class="command-preview-header">
+            <span id="run-command-label">Command-line equivalent (advanced users)</span>
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-copy-command">Copy</button>
+          </div>
+          <pre id="command-preview"></pre>
+        </div>
+      </div>
+
+      <div class="run-buttons">
+        <button type="button" class="btn btn-secondary" id="btn-check">Validate network inputs</button>
+        <button type="button" class="btn btn-secondary" id="btn-baseline">Develop baseline only</button>
+        <button type="button" class="btn btn-primary btn-lg" id="btn-optimize">Run Open Referral optimisation</button>
+        <button type="button" class="btn btn-ghost" id="btn-demo">Run demo scenario</button>
+      </div>
+
+      <section class="dno-capabilities dno-capabilities--compact" id="dno-capabilities-step4" aria-labelledby="capabilities-compact-title"></section>
+    </section>
+
+    <!-- Step 5: Results -->
+    <section class="step-panel" id="step-5" data-step="5">
+      <header class="page-header">
+        <h2>Interpret DNO outputs</h2>
+        <p class="lead">Review the 3&times;3 scorecard, baseline vs optimised scenario comparison, and sample referral redesign recommendations.</p>
+      </header>
+
+      <div id="results-empty" class="empty-state">
+        <p>No DNO outputs yet. Conduct an analysis in step 4, or open a previous analysis run below.</p>
+      </div>
+
+      <div id="results-content" class="hidden">
+        <div class="scorecard-grid" id="scorecard-grid"></div>
+        <div class="metrics-deltas card" id="metrics-deltas"></div>
+        <div class="card">
+          <div class="card-header-row">
+            <h3>Sample referral redesign recommendations</h3>
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-download-actions">Download CSV</button>
+          </div>
+          <div class="table-wrap" id="actions-table-wrap"></div>
+        </div>
+        <div class="results-tabs">
+          <button type="button" class="results-tab active" data-results="summary">Decision brief</button>
+          <button type="button" class="results-tab" data-results="validation">Validation report</button>
+          <button type="button" class="results-tab" data-results="baseline">Baseline metrics</button>
+        </div>
+        <div class="card markdown-body" id="results-markdown"></div>
+        <div class="action-row">
+          <button type="button" class="btn btn-secondary" id="btn-reveal-folder">Show in folder</button>
+          <button type="button" class="btn btn-secondary" id="btn-download-zip">Download all (ZIP)</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Previous DNO analysis runs</h3>
+        <div id="run-history" class="run-history"></div>
+      </div>
+    </section>
+      </main>
+
+      <aside class="log-console collapsed" id="log-console">
+        <div class="log-header">
+          <span>Activity log</span>
+          <div class="log-actions">
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-copy-log">Copy</button>
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-cancel-job">Cancel</button>
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-toggle-log">Show</button>
+          </div>
+        </div>
+        <pre class="log-body" id="log-body"></pre>
+      </aside>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="ui/dno-lingo.js"></script>
+  <script src="ui/editor.js"></script>
+  <script src="ui/app.js"></script>
+</body>
+</html>

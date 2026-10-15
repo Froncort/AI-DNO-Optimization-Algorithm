@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dno-core"
+version = "0.1.0"
+description = "AI-DNO Open Source — baseline assessment and Open Referral redesign."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "pulp==3.3.2",
+]
+
+[project.scripts]
+dno = "dno_core.cli:main"
+dno-run = "dno_core.cli:main_run"
+
+[tool.setuptools.packages.find]
+where = ["src"]

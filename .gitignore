@@ -1,0 +1,30 @@
+# Python bytecode and build output
+__pycache__/
+*.py[cod]
+*.so
+build/
+dist/
+*.egg-info/
+
+# Local environments and tooling
+.venv/
+venv/
+.env
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# AI-DNO generated output
+results/
+*.bak
+*-pulp.mps
+*-pulp.sol
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,19 @@
+{
+  "device_types": [
+    {
+      "id": "dt-gx4",
+      "name": "GX 4",
+      "test_parameters": [
+        {
+          "test_type_id": "tt-mtb",
+          "max_tests_per_shift": 12,
+          "max_shifts": 2,
+          "cost_per_test": 12.5
+        }
+      ]
+    }
+  ],
+  "mad_device_caps": {
+    "GX 4": 4
+  }
+}
